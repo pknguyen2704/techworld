@@ -1,0 +1,75 @@
+version: "3"
+
+services:
+    nginx:
+        restart: always
+        container_name: techworld_nginx
+        image: nginx:latest
+        working_dir: /var/www/
+        volumes:
+            - ./src:/var/www
+            - ./config/nginx/magento.conf:/etc/nginx/conf.d/default.conf
+        expose:
+            - "80"
+        ports:
+            - "80:80"
+        links:
+            - app
+    app:
+        build:
+            context: ./docker/php8.1-fpm
+        container_name: app
+        working_dir: /var/www/magento
+        volumes:
+            -   ./src/:/var/www/
+        restart: always
+        expose:
+            -   "9000"
+        depends_on:
+            -   mysql
+            -   redis
+            -   elasticsearch
+        links:
+            -   "mysql:database"
+            -   "redis:redis"
+            -   "elasticsearch:elasticsearch"
+    mysql:
+        restart: always
+        image: mysql:8.0.31
+        container_name: techworld_mysql
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        working_dir: /var/lib/mysql
+        volumes:
+            -   ./data/mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: mysql_root_password
+            MYSQL_USER: magento_user
+            MYSQL_DATABASE: magento_db
+            MYSQL_PASSWORD: defaultpassword
+        expose:
+            -   "3306"
+    redis:
+        restart: always
+        container_name: techworld_redis
+        image: redis
+        expose:
+            -   "6379"
+    elasticsearch:
+        user: root
+        container_name: techworld_elasticsearch
+        build:
+            context: ./docker/elasticsearch
+        environment:
+            -   node.name=techworld_elasticsearch
+            -   cluster.name=docker-cluster
+            -   bootstrap.memory_lock=true
+            -   "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+            -   "discovery.type=single-node"
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+        volumes:
+          -  ./data/elasticsearch:/usr/share/elasticsearch/data
+        expose:
+          - "9200"
