@@ -70,6 +70,6 @@ services:
                 soft: -1
                 hard: -1
         volumes:
-          -  ./data/elasticsearch:/usr/share/elasticsearch/data
+            -  ./data/elasticsearch:/usr/share/elasticsearch/data
         expose:
-          - "9200"
+            - "9200"
