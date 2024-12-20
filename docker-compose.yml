@@ -17,7 +17,7 @@ services:
             - app
     app:
         build:
-            context: ./docker/php7.4-fpm
+            context: ./docker/php8.1-fpm
         container_name: app
         working_dir: /var/www/magento
         volumes:
