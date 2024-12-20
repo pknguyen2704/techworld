@@ -37,7 +37,6 @@ RUN HASH=`curl -sS https://composer.github.io/installer.sig`
 
 RUN php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
-RUN chown -R www-data:www-data /var/www/magento
 
 CMD ["php-fpm"]
 
