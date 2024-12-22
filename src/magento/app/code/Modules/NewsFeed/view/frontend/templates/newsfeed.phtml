@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<style>
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+  }
+</style>
+
+<?php
+
+/**
+ * @var \Modules\NewsFeed\Block\NewsFeedBlock $block
+ */
+
+$rssUrl = "https://vnexpress.net/rss/so-hoa.rss";
+$json = file_get_contents("https://api.rss2json.com/v1/api.json?rss_url=" . urlencode($rssUrl));
+$data = json_decode($json, true);
+
+function getImageFromDescription($description) {
+    $dom = new DOMDocument();
+    @$dom->loadHTML($description);
+    $images = $dom->getElementsByTagName('img');
+    if ($images->length > 0) {
+        return $images->item(0)->getAttribute('src');
+    }
+    return null;
+}
+
+?>
+
+<div class="container" style="width:900px;">
+  <div class="row">
+    <?php if (!empty($data['items'])) : ?>
+      <?php $firstItem = $data['items'][0]; ?>
+      <div class="col-12 mb-4">
+        <div class="card box-shadow h-md-250">
+          <div class="row no-gutters">
+            <div class="col-md-8">
+              <div class="card-body">
+                <strong class="d-inline-block mb-2 text-primary">Tin tức nổi bật</strong>
+                <h2 class="mb-3">
+                  <a class="text-dark font-weight-bold" href="<?= $firstItem['link'] ?>"><?= $firstItem['title'] ?></a>
+                </h2>
+                <p class="card-text"><?= strip_tags($firstItem['description']) ?></p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <?php $firstImage = getImageFromDescription($firstItem['description']); ?>
+              <img class="card-img-right flex-auto d-none d-md-block w-100" 
+                   src="<?= $firstImage ?>" 
+                   alt="Thumbnail" 
+                   style="height: 250px; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <?php foreach (array_slice($data['items'], 1, 8) as $item) : ?>
+      <div class="col-sm-6">
+        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+          <div class="row no-gutters">
+            <div class="col-sm-7">
+              <div class="card-body d-flex flex-column align-items-start">
+                <strong class="d-inline-block mb-2 text-success">Tin tức</strong>
+                <h5 class="mb-2">
+                  <a class="text-dark font-weight-bold" href="<?= $item['link'] ?>"><?= $item['title'] ?></a>
+                </h5>
+                <p class="card-text mb-auto"><?= strip_tags($item['description']) ?></p>
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <?php $image = getImageFromDescription($item['description']); ?>
+              <img class="card-img-right flex-auto d-none d-md-block w-100" 
+                   src="<?= $image ?>" 
+                   alt="Thumbnail" 
+                   style="height: 150px; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
+  </div>
+</div>
