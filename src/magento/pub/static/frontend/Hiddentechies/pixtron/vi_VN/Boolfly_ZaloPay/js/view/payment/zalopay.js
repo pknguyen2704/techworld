@@ -1,0 +1,1 @@
+/var/www/magento/app/code/Boolfly/ZaloPay/view/frontend/web/js/view/payment/zalopay.js

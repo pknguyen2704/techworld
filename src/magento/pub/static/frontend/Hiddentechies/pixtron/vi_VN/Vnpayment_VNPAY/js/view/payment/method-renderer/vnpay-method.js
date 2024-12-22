@@ -1,0 +1,1 @@
+/var/www/magento/app/code/Vnpayment/VNPAY/view/frontend/web/js/view/payment/method-renderer/vnpay-method.js

@@ -1,0 +1,69 @@
+[2024-12-21T21:24:14.703995+00:00] main.DEBUG: array (
+  'request' => 
+  array (
+    'appid' => '2554',
+    'apptime' => 1734816254000,
+    'apptransid' => '241221_000000010',
+    'appuser' => 'magento2',
+    'item' => '[{"itemid":"B\\u1ed9 Mini PC ASUS Intel NUC13 PRO Tall NUC13ANHI7","itemname":"B\\u1ed9 Mini PC ASUS Intel NUC13 PRO Tall NUC13ANHI7","itemprice":22000000,"itemquantity":"1.0000"}]',
+    'embeddata' => '{"merchantinfo":"boolfly"}',
+    'amount' => 22000005,
+    'description' => 'ZaloPay Integration for Magento 2',
+    'bankcode' => 'zalopayapp',
+    'mac' => 'a69e98e7a586509048f7cd3b06b5e1bad1511f1c342527159b1e46357fc0c70d',
+  ),
+  'request_uri' => 'https://sandbox.zalopay.com.vn/v001/tpe/createorder',
+  'response' => 
+  array (
+    'returncode' => 1,
+    'returnmessage' => '',
+    'zptranstoken' => 'AChstZaHU2O27gll2JC62BIw',
+    'orderurl' => 'https://qcgateway.zalopay.vn/openinapp?order=eyJ6cHRyYW5zdG9rZW4iOiJBQ2hzdFphSFUyTzI3Z2xsMkpDNjJCSXciLCJhcHBpZCI6MjU1NH0=',
+  ),
+) [] []
+[2024-12-22T04:42:58.946041+00:00] main.DEBUG: array (
+  'request' => 
+  array (
+    'appid' => '2554',
+    'apptime' => 1734842578000,
+    'apptransid' => '241222_000000017',
+    'appuser' => 'magento2',
+    'item' => '[{"itemid":"\\u1ed4 c\\u1ee9ng SSD Teamgroup MP33 256GB M.2 2280 PCIe 3.0x4","itemname":"\\u1ed4 c\\u1ee9ng SSD Teamgroup MP33 256GB M.2 2280 PCIe 3.0x4","itemprice":799000,"itemquantity":"1.0000"}]',
+    'embeddata' => '{"merchantinfo":"boolfly"}',
+    'amount' => 799005,
+    'description' => 'ZaloPay Integration for Magento 2',
+    'bankcode' => 'zalopayapp',
+    'mac' => '1465185a6d9040f65769b6041d0e770205f800aac4e417a763110ad5b4c034d9',
+  ),
+  'request_uri' => 'https://sandbox.zalopay.com.vn/v001/tpe/createorder',
+  'response' => 
+  array (
+    'returncode' => 1,
+    'returnmessage' => '',
+    'zptranstoken' => 'ACfGlMOZe_13XNmHrf0M94dw',
+    'orderurl' => 'https://qcgateway.zalopay.vn/openinapp?order=eyJ6cHRyYW5zdG9rZW4iOiJBQ2ZHbE1PWmVfMTNYTm1IcmYwTTk0ZHciLCJhcHBpZCI6MjU1NH0=',
+  ),
+) [] []
+[2024-12-22T04:57:01.020619+00:00] main.DEBUG: array (
+  'request' => 
+  array (
+    'appid' => '2554',
+    'apptime' => 1734843420000,
+    'apptransid' => '241222_000000019',
+    'appuser' => 'magento2',
+    'item' => '[{"itemid":"Ngu\\u1ed3n Mini SFX-L Asus ROG Loki SFX-L 850W Platinum","itemname":"Ngu\\u1ed3n Mini SFX-L Asus ROG Loki SFX-L 850W Platinum","itemprice":6999000,"itemquantity":"1.0000"}]',
+    'embeddata' => '{"merchantinfo":"boolfly"}',
+    'amount' => 6999005,
+    'description' => 'ZaloPay Integration for Magento 2',
+    'bankcode' => 'zalopayapp',
+    'mac' => '520f104ea1f1d00fd88038f867486f988f1c1134c8e726cbe23236058195986d',
+  ),
+  'request_uri' => 'https://sandbox.zalopay.com.vn/v001/tpe/createorder',
+  'response' => 
+  array (
+    'returncode' => 1,
+    'returnmessage' => '',
+    'zptranstoken' => 'ACv39AiDpkDXjJvutrl4pd4Q',
+    'orderurl' => 'https://qcgateway.zalopay.vn/openinapp?order=eyJ6cHRyYW5zdG9rZW4iOiJBQ3YzOUFpRHBrRFhqSnZ1dHJsNHBkNFEiLCJhcHBpZCI6MjU1NH0=',
+  ),
+) [] []

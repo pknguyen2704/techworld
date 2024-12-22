@@ -1,0 +1,813 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1734843357;s:6:"expire";i:1734929757;s:4:"tags";s:33:"d19_CAT_P,d19_BLOCK_HTML,d19_MAGE";}
+
+    <div style="margin-bottom: 0;" class="owl-button-top above-padding below-padding block widget block-new-products grid">
+        <div class="page-title-main">
+            <strong role="heading" aria-level="2">Sản phẩm mới</strong>
+        </div>
+        <div class="block-content">
+            <!-- new_products_content_widget_grid-->            <div class="products-grid grid">
+                <div class="slider-outer">
+                    <ol style="margin-bottom: 0;" class="product-widget-slider products list items product-items widget-new-grid">
+                                                                            <li class="product-item product-slider">                            <div class="product-item-info">
+                                <div class="product-img-main">
+                                    <a href="http://localhost/index.php/ngu-n-may-tinh-aigo-vk350-350w.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-130">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://localhost/media/catalog/product/cache/fa47cbc2fba45d035ea4b1fd9f0754f4/6/7/67274_aigo_350w__1__1.jpg"
+            loading="lazy"
+            width="350"
+            height="519"
+            alt="Ngu&#x1ED3;n&#x20;m&#xE1;y&#x20;t&#xED;nh&#x20;AIGO&#x20;VK350&#x20;-&#x20;350W"/></span>
+</span>
+<style>.product-image-container-130 {
+    width: 350px;
+}
+.product-image-container-130 span.product-image-wrapper {
+    padding-bottom: 148.28571428571%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-130");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "350px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-130  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "148.28571428571%";
+}</script>                                    </a>
+                                    <div class="product-item-inner">
+                                                                                    <div class="product actions product-item-actions">
+                                                <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/wishlist\/index\/add\/","data":{"product":130,"uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Thêm vào danh sách yêu thích">
+                                                            <span>Thêm vào danh sách yêu thích</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/catalog\/product_compare\/add\/","data":{"product":"130","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           title="Thêm vào so sánh">
+                                                            <span>Thêm vào so sánh</span>
+                                                        </a>
+                                                                                                    </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Nguồn máy tính AIGO VK350 - 350W"
+                                           href="http://localhost/index.php/ngu-n-may-tinh-aigo-vk350-350w.html"
+                                           class="product-item-link">
+                                               Nguồn máy tính AIGO VK350 - 350W                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="130" data-price-box="product-id-130">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-130-widget-new-grid"                data-price-amount="499000"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">499.000,00 ₫</span></span>
+        </span>
+
+</div>
+                                                                                                                
+                                                                            <div class="product-item-inner">
+                                            <div class="product-item-actions">
+                                                                                                    <div class="actions-primary">
+                                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                        data-post='{"action":"http:\/\/localhost\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL2xvY2FsaG9zdC8%2C\/product\/130\/","data":{"product":"130","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                                        type="button" title="Thêm vào giỏ hàng">
+                                                                    <span>Thêm vào giỏ hàng</span>
+                                                                </button>
+                                                                                                                                                                        </div>
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                                                                                </li><li class="product-item product-slider">                            <div class="product-item-info">
+                                <div class="product-img-main">
+                                    <a href="http://localhost/index.php/ngu-n-mini-sfx-l-asus-rog-loki-sfx-l-850w-platinum.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-129">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://localhost/media/catalog/product/cache/fa47cbc2fba45d035ea4b1fd9f0754f4/7/3/73216_loki_sfx_l_850w__1_.jpg"
+            loading="lazy"
+            width="350"
+            height="519"
+            alt="Ngu&#x1ED3;n&#x20;Mini&#x20;SFX-L&#x20;Asus&#x20;ROG&#x20;Loki&#x20;SFX-L&#x20;850W&#x20;Platinum"/></span>
+</span>
+<style>.product-image-container-129 {
+    width: 350px;
+}
+.product-image-container-129 span.product-image-wrapper {
+    padding-bottom: 148.28571428571%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-129");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "350px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-129  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "148.28571428571%";
+}</script>                                    </a>
+                                    <div class="product-item-inner">
+                                                                                    <div class="product actions product-item-actions">
+                                                <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/wishlist\/index\/add\/","data":{"product":129,"uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Thêm vào danh sách yêu thích">
+                                                            <span>Thêm vào danh sách yêu thích</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/catalog\/product_compare\/add\/","data":{"product":"129","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           title="Thêm vào so sánh">
+                                                            <span>Thêm vào so sánh</span>
+                                                        </a>
+                                                                                                    </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Nguồn Mini SFX-L Asus ROG Loki SFX-L 850W Platinum"
+                                           href="http://localhost/index.php/ngu-n-mini-sfx-l-asus-rog-loki-sfx-l-850w-platinum.html"
+                                           class="product-item-link">
+                                               Nguồn Mini SFX-L Asus ROG Loki SFX-L 850W Platinum                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="129" data-price-box="product-id-129">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-129-widget-new-grid"                data-price-amount="6999000"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">6.999.000,00 ₫</span></span>
+        </span>
+
+</div>
+                                                                                                                
+                                                                            <div class="product-item-inner">
+                                            <div class="product-item-actions">
+                                                                                                    <div class="actions-primary">
+                                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                        data-post='{"action":"http:\/\/localhost\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL2xvY2FsaG9zdC8%2C\/product\/129\/","data":{"product":"129","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                                        type="button" title="Thêm vào giỏ hàng">
+                                                                    <span>Thêm vào giỏ hàng</span>
+                                                                </button>
+                                                                                                                                                                        </div>
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                                                                                </li><li class="product-item product-slider">                            <div class="product-item-info">
+                                <div class="product-img-main">
+                                    <a href="http://localhost/index.php/qu-t-hut-gio-t-n-nhi-t-laptop-coolcold-k29-khong-co-man-led.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-128">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://localhost/media/catalog/product/cache/fa47cbc2fba45d035ea4b1fd9f0754f4/1/2/120.1.jpg"
+            loading="lazy"
+            width="350"
+            height="519"
+            alt="Qu&#x1EA1;t&#x20;h&#xFA;t&#x20;gi&#xF3;&#x20;t&#x1EA3;n&#x20;nhi&#x1EC7;t&#x20;laptop&#x20;Coolcold&#x20;K29&#x20;&#x28;kh&#xF4;ng&#x20;c&#xF3;&#x20;m&#xE0;n&#x20;Led&#x29;"/></span>
+</span>
+<style>.product-image-container-128 {
+    width: 350px;
+}
+.product-image-container-128 span.product-image-wrapper {
+    padding-bottom: 148.28571428571%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-128");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "350px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-128  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "148.28571428571%";
+}</script>                                    </a>
+                                    <div class="product-item-inner">
+                                                                                    <div class="product actions product-item-actions">
+                                                <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/wishlist\/index\/add\/","data":{"product":128,"uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Thêm vào danh sách yêu thích">
+                                                            <span>Thêm vào danh sách yêu thích</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/catalog\/product_compare\/add\/","data":{"product":"128","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           title="Thêm vào so sánh">
+                                                            <span>Thêm vào so sánh</span>
+                                                        </a>
+                                                                                                    </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Quạt hút gió tản nhiệt laptop Coolcold K29 (không có màn Led)"
+                                           href="http://localhost/index.php/qu-t-hut-gio-t-n-nhi-t-laptop-coolcold-k29-khong-co-man-led.html"
+                                           class="product-item-link">
+                                               Quạt hút gió tản nhiệt laptop Coolcold K29 (không có màn Led)                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="128" data-price-box="product-id-128">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-128-widget-new-grid"                data-price-amount="230000"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">230.000,00 ₫</span></span>
+        </span>
+
+</div>
+                                                                                                                
+                                                                            <div class="product-item-inner">
+                                            <div class="product-item-actions">
+                                                                                                    <div class="actions-primary">
+                                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                        data-post='{"action":"http:\/\/localhost\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL2xvY2FsaG9zdC8%2C\/product\/128\/","data":{"product":"128","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                                        type="button" title="Thêm vào giỏ hàng">
+                                                                    <span>Thêm vào giỏ hàng</span>
+                                                                </button>
+                                                                                                                                                                        </div>
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                                                                                </li><li class="product-item product-slider">                            <div class="product-item-info">
+                                <div class="product-img-main">
+                                    <a href="http://localhost/index.php/gia-d-man-may-tinh-north-bayou-f160-mau-xam-17-27-inch.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-127">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://localhost/media/catalog/product/cache/fa47cbc2fba45d035ea4b1fd9f0754f4/1/1/119.1.jpg"
+            loading="lazy"
+            width="350"
+            height="519"
+            alt="Gi&#xE1;&#x20;&#x0111;&#x1EE1;&#x20;m&#xE0;n&#x20;m&#xE1;y&#x20;t&#xED;nh&#x20;North&#x20;Bayou&#x20;F160&#x20;M&#xE0;u&#x20;X&#xE1;m&#x20;&#x28;17-27&#x20;inch&#x29;"/></span>
+</span>
+<style>.product-image-container-127 {
+    width: 350px;
+}
+.product-image-container-127 span.product-image-wrapper {
+    padding-bottom: 148.28571428571%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-127");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "350px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-127  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "148.28571428571%";
+}</script>                                    </a>
+                                    <div class="product-item-inner">
+                                                                                    <div class="product actions product-item-actions">
+                                                <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/wishlist\/index\/add\/","data":{"product":127,"uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Thêm vào danh sách yêu thích">
+                                                            <span>Thêm vào danh sách yêu thích</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/catalog\/product_compare\/add\/","data":{"product":"127","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           title="Thêm vào so sánh">
+                                                            <span>Thêm vào so sánh</span>
+                                                        </a>
+                                                                                                    </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Giá đỡ màn máy tính North Bayou F160 Màu Xám (17-27 inch)"
+                                           href="http://localhost/index.php/gia-d-man-may-tinh-north-bayou-f160-mau-xam-17-27-inch.html"
+                                           class="product-item-link">
+                                               Giá đỡ màn máy tính North Bayou F160 Màu Xám (17-27 inch)                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="127" data-price-box="product-id-127">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-127-widget-new-grid"                data-price-amount="899000"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">899.000,00 ₫</span></span>
+        </span>
+
+</div>
+                                                                                                                
+                                                                            <div class="product-item-inner">
+                                            <div class="product-item-actions">
+                                                                                                    <div class="actions-primary">
+                                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                        data-post='{"action":"http:\/\/localhost\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL2xvY2FsaG9zdC8%2C\/product\/127\/","data":{"product":"127","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                                        type="button" title="Thêm vào giỏ hàng">
+                                                                    <span>Thêm vào giỏ hàng</span>
+                                                                </button>
+                                                                                                                                                                        </div>
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                                                                                </li><li class="product-item product-slider">                            <div class="product-item-info">
+                                <div class="product-img-main">
+                                    <a href="http://localhost/index.php/pin-s-c-d-phong-baseus-airpow-lite-10-000mah-15w-mau-den.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-126">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://localhost/media/catalog/product/cache/fa47cbc2fba45d035ea4b1fd9f0754f4/1/1/118.1.jpg"
+            loading="lazy"
+            width="350"
+            height="519"
+            alt="Pin&#x20;s&#x1EA1;c&#x20;d&#x1EF1;&#x20;ph&#xF2;ng&#x20;Baseus&#x20;Airpow&#x20;Lite&#x20;10.000mAh&#x20;15W&#x20;-&#x20;M&#xE0;u&#x20;&#x0110;en"/></span>
+</span>
+<style>.product-image-container-126 {
+    width: 350px;
+}
+.product-image-container-126 span.product-image-wrapper {
+    padding-bottom: 148.28571428571%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-126");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "350px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-126  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "148.28571428571%";
+}</script>                                    </a>
+                                    <div class="product-item-inner">
+                                                                                    <div class="product actions product-item-actions">
+                                                <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/wishlist\/index\/add\/","data":{"product":126,"uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Thêm vào danh sách yêu thích">
+                                                            <span>Thêm vào danh sách yêu thích</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/catalog\/product_compare\/add\/","data":{"product":"126","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           title="Thêm vào so sánh">
+                                                            <span>Thêm vào so sánh</span>
+                                                        </a>
+                                                                                                    </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Pin sạc dự phòng Baseus Airpow Lite 10.000mAh 15W - Màu Đen"
+                                           href="http://localhost/index.php/pin-s-c-d-phong-baseus-airpow-lite-10-000mah-15w-mau-den.html"
+                                           class="product-item-link">
+                                               Pin sạc dự phòng Baseus Airpow Lite 10.000mAh 15W - Màu Đen                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="126" data-price-box="product-id-126">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-126-widget-new-grid"                data-price-amount="599000"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">599.000,00 ₫</span></span>
+        </span>
+
+</div>
+                                                                                                                
+                                                                            <div class="product-item-inner">
+                                            <div class="product-item-actions">
+                                                                                                    <div class="actions-primary">
+                                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                        data-post='{"action":"http:\/\/localhost\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL2xvY2FsaG9zdC8%2C\/product\/126\/","data":{"product":"126","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                                        type="button" title="Thêm vào giỏ hàng">
+                                                                    <span>Thêm vào giỏ hàng</span>
+                                                                </button>
+                                                                                                                                                                        </div>
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                                                                                </li><li class="product-item product-slider">                            <div class="product-item-info">
+                                <div class="product-img-main">
+                                    <a href="http://localhost/index.php/tui-ch-ng-s-c-laptop-hideki-ht14-15inch-mau-den.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-125">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://localhost/media/catalog/product/cache/fa47cbc2fba45d035ea4b1fd9f0754f4/1/1/117.1.jpg"
+            loading="lazy"
+            width="350"
+            height="519"
+            alt="T&#xFA;i&#x20;ch&#x1ED1;ng&#x20;s&#x1ED1;c&#x20;laptop&#x20;Hideki&#x20;HT14&#x20;15inch&#x20;M&#xE0;u&#x20;&#x0111;en"/></span>
+</span>
+<style>.product-image-container-125 {
+    width: 350px;
+}
+.product-image-container-125 span.product-image-wrapper {
+    padding-bottom: 148.28571428571%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-125");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "350px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-125  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "148.28571428571%";
+}</script>                                    </a>
+                                    <div class="product-item-inner">
+                                                                                    <div class="product actions product-item-actions">
+                                                <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/wishlist\/index\/add\/","data":{"product":125,"uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Thêm vào danh sách yêu thích">
+                                                            <span>Thêm vào danh sách yêu thích</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/catalog\/product_compare\/add\/","data":{"product":"125","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           title="Thêm vào so sánh">
+                                                            <span>Thêm vào so sánh</span>
+                                                        </a>
+                                                                                                    </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Túi chống sốc laptop Hideki HT14 15inch Màu đen"
+                                           href="http://localhost/index.php/tui-ch-ng-s-c-laptop-hideki-ht14-15inch-mau-den.html"
+                                           class="product-item-link">
+                                               Túi chống sốc laptop Hideki HT14 15inch Màu đen                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="125" data-price-box="product-id-125">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-125-widget-new-grid"                data-price-amount="199000"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">199.000,00 ₫</span></span>
+        </span>
+
+</div>
+                                                                                                                
+                                                                            <div class="product-item-inner">
+                                            <div class="product-item-actions">
+                                                                                                    <div class="actions-primary">
+                                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                        data-post='{"action":"http:\/\/localhost\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL2xvY2FsaG9zdC8%2C\/product\/125\/","data":{"product":"125","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                                        type="button" title="Thêm vào giỏ hàng">
+                                                                    <span>Thêm vào giỏ hàng</span>
+                                                                </button>
+                                                                                                                                                                        </div>
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                                                                                </li><li class="product-item product-slider">                            <div class="product-item-info">
+                                <div class="product-img-main">
+                                    <a href="http://localhost/index.php/b-v-sinh-jrc-5in1-multi-functional-nano-cleaning-fluid.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-124">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://localhost/media/catalog/product/cache/fa47cbc2fba45d035ea4b1fd9f0754f4/1/1/116.1.jpg"
+            loading="lazy"
+            width="350"
+            height="519"
+            alt="B&#x1ED9;&#x20;v&#x1EC7;&#x20;sinh&#x20;JRC&#x20;5in1&#x20;Multi-Functional&#x20;Nano&#x20;Cleaning&#x20;fluid"/></span>
+</span>
+<style>.product-image-container-124 {
+    width: 350px;
+}
+.product-image-container-124 span.product-image-wrapper {
+    padding-bottom: 148.28571428571%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-124");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "350px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-124  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "148.28571428571%";
+}</script>                                    </a>
+                                    <div class="product-item-inner">
+                                                                                    <div class="product actions product-item-actions">
+                                                <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/wishlist\/index\/add\/","data":{"product":124,"uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Thêm vào danh sách yêu thích">
+                                                            <span>Thêm vào danh sách yêu thích</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/catalog\/product_compare\/add\/","data":{"product":"124","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           title="Thêm vào so sánh">
+                                                            <span>Thêm vào so sánh</span>
+                                                        </a>
+                                                                                                    </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Bộ vệ sinh JRC 5in1 Multi-Functional Nano Cleaning fluid"
+                                           href="http://localhost/index.php/b-v-sinh-jrc-5in1-multi-functional-nano-cleaning-fluid.html"
+                                           class="product-item-link">
+                                               Bộ vệ sinh JRC 5in1 Multi-Functional Nano Cleaning fluid                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="124" data-price-box="product-id-124">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-124-widget-new-grid"                data-price-amount="189000"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">189.000,00 ₫</span></span>
+        </span>
+
+</div>
+                                                                                                                
+                                                                            <div class="product-item-inner">
+                                            <div class="product-item-actions">
+                                                                                                    <div class="actions-primary">
+                                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                        data-post='{"action":"http:\/\/localhost\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL2xvY2FsaG9zdC8%2C\/product\/124\/","data":{"product":"124","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                                        type="button" title="Thêm vào giỏ hàng">
+                                                                    <span>Thêm vào giỏ hàng</span>
+                                                                </button>
+                                                                                                                                                                        </div>
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                                                                                </li><li class="product-item product-slider">                            <div class="product-item-info">
+                                <div class="product-img-main">
+                                    <a href="http://localhost/index.php/de-ta-n-nhie-t-laptop-deepcool-windpal-mini.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-123">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://localhost/media/catalog/product/cache/fa47cbc2fba45d035ea4b1fd9f0754f4/1/1/115.1.jpg"
+            loading="lazy"
+            width="350"
+            height="519"
+            alt="&#x0110;&#xEA;&#x0301;&#x20;ta&#x0309;n&#x20;nhi&#xEA;&#x0323;t&#x20;Laptop&#x20;DEEPCOOL&#x20;Windpal&#x20;Mini"/></span>
+</span>
+<style>.product-image-container-123 {
+    width: 350px;
+}
+.product-image-container-123 span.product-image-wrapper {
+    padding-bottom: 148.28571428571%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-123");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "350px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-123  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "148.28571428571%";
+}</script>                                    </a>
+                                    <div class="product-item-inner">
+                                                                                    <div class="product actions product-item-actions">
+                                                <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/wishlist\/index\/add\/","data":{"product":123,"uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Thêm vào danh sách yêu thích">
+                                                            <span>Thêm vào danh sách yêu thích</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/catalog\/product_compare\/add\/","data":{"product":"123","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           title="Thêm vào so sánh">
+                                                            <span>Thêm vào so sánh</span>
+                                                        </a>
+                                                                                                    </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Đế tản nhiệt Laptop DEEPCOOL Windpal Mini"
+                                           href="http://localhost/index.php/de-ta-n-nhie-t-laptop-deepcool-windpal-mini.html"
+                                           class="product-item-link">
+                                               Đế tản nhiệt Laptop DEEPCOOL Windpal Mini                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="123" data-price-box="product-id-123">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-123-widget-new-grid"                data-price-amount="259000"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">259.000,00 ₫</span></span>
+        </span>
+
+</div>
+                                                                                                                
+                                                                            <div class="product-item-inner">
+                                            <div class="product-item-actions">
+                                                                                                    <div class="actions-primary">
+                                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                        data-post='{"action":"http:\/\/localhost\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL2xvY2FsaG9zdC8%2C\/product\/123\/","data":{"product":"123","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                                        type="button" title="Thêm vào giỏ hàng">
+                                                                    <span>Thêm vào giỏ hàng</span>
+                                                                </button>
+                                                                                                                                                                        </div>
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                                                                                </li><li class="product-item product-slider">                            <div class="product-item-info">
+                                <div class="product-img-main">
+                                    <a href="http://localhost/index.php/thong-s-k-thu-t-usb-bluetooth-5-0-orico-bta-608-den-tr-ng.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-122">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://localhost/media/catalog/product/cache/fa47cbc2fba45d035ea4b1fd9f0754f4/2/5/2506_888.jpg"
+            loading="lazy"
+            width="350"
+            height="519"
+            alt="Th&#xF4;ng&#x20;s&#x1ED1;&#x20;k&#x1EF9;&#x20;thu&#x1EAD;t&#x20;USB&#x20;Bluetooth&#x20;5.0&#x20;ORICO&#x20;BTA-608&#x20;&#x28;&#x0110;en&#x2F;Tr&#x1EAF;ng&#x29;"/></span>
+</span>
+<style>.product-image-container-122 {
+    width: 350px;
+}
+.product-image-container-122 span.product-image-wrapper {
+    padding-bottom: 148.28571428571%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-122");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "350px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-122  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "148.28571428571%";
+}</script>                                    </a>
+                                    <div class="product-item-inner">
+                                                                                    <div class="product actions product-item-actions">
+                                                <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/wishlist\/index\/add\/","data":{"product":122,"uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Thêm vào danh sách yêu thích">
+                                                            <span>Thêm vào danh sách yêu thích</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/catalog\/product_compare\/add\/","data":{"product":"122","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           title="Thêm vào so sánh">
+                                                            <span>Thêm vào so sánh</span>
+                                                        </a>
+                                                                                                    </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Thông số kỹ thuật USB Bluetooth 5.0 ORICO BTA-608 (Đen/Trắng)"
+                                           href="http://localhost/index.php/thong-s-k-thu-t-usb-bluetooth-5-0-orico-bta-608-den-tr-ng.html"
+                                           class="product-item-link">
+                                               Thông số kỹ thuật USB Bluetooth 5.0 ORICO BTA-608 (Đen/Trắng)                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="122" data-price-box="product-id-122">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-122-widget-new-grid"                data-price-amount="169000"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">169.000,00 ₫</span></span>
+        </span>
+
+</div>
+                                                                                                                
+                                                                            <div class="product-item-inner">
+                                            <div class="product-item-actions">
+                                                                                                    <div class="actions-primary">
+                                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                        data-post='{"action":"http:\/\/localhost\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL2xvY2FsaG9zdC8%2C\/product\/122\/","data":{"product":"122","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                                        type="button" title="Thêm vào giỏ hàng">
+                                                                    <span>Thêm vào giỏ hàng</span>
+                                                                </button>
+                                                                                                                                                                        </div>
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                                                                                </li><li class="product-item product-slider">                            <div class="product-item-info">
+                                <div class="product-img-main">
+                                    <a href="http://localhost/index.php/gimbal-zhiyun-smooth-q4-mau-xam.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-121">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://localhost/media/catalog/product/cache/fa47cbc2fba45d035ea4b1fd9f0754f4/1/1/113.1.jpg"
+            loading="lazy"
+            width="350"
+            height="519"
+            alt="Gimbal&#x20;Zhiyun&#x20;Smooth&#x20;Q4&#x20;-&#x20;M&#xE0;u&#x20;x&#xE1;m"/></span>
+</span>
+<style>.product-image-container-121 {
+    width: 350px;
+}
+.product-image-container-121 span.product-image-wrapper {
+    padding-bottom: 148.28571428571%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-121");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "350px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-121  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "148.28571428571%";
+}</script>                                    </a>
+                                    <div class="product-item-inner">
+                                                                                    <div class="product actions product-item-actions">
+                                                <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/wishlist\/index\/add\/","data":{"product":121,"uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Thêm vào danh sách yêu thích">
+                                                            <span>Thêm vào danh sách yêu thích</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/localhost\/index.php\/catalog\/product_compare\/add\/","data":{"product":"121","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                           title="Thêm vào so sánh">
+                                                            <span>Thêm vào so sánh</span>
+                                                        </a>
+                                                                                                    </div>
+                                            </div>
+                                                                            </div>
+                                </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Gimbal Zhiyun Smooth Q4 - Màu xám"
+                                           href="http://localhost/index.php/gimbal-zhiyun-smooth-q4-mau-xam.html"
+                                           class="product-item-link">
+                                               Gimbal Zhiyun Smooth Q4 - Màu xám                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="121" data-price-box="product-id-121">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-121-widget-new-grid"                data-price-amount="2999000"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">2.999.000,00 ₫</span></span>
+        </span>
+
+</div>
+                                                                                                                
+                                                                            <div class="product-item-inner">
+                                            <div class="product-item-actions">
+                                                                                                    <div class="actions-primary">
+                                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                        data-post='{"action":"http:\/\/localhost\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL2xvY2FsaG9zdC8%2C\/product\/121\/","data":{"product":"121","uenc":"aHR0cDovL2xvY2FsaG9zdC8,"}}'
+                                                                        type="button" title="Thêm vào giỏ hàng">
+                                                                    <span>Thêm vào giỏ hàng</span>
+                                                                </button>
+                                                                                                                                                                        </div>
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                            </li>                                            </ol>
+                </div>
+            </div>
+                    </div>
+    </div>
+    <script type="text/javascript" xml="space">
+        require(['jquery', 'pixtronowlcarousel'], function() {
+            jQuery(document).ready(function() {
+                jQuery(".product-widget-slider").owlCarousel({
+                    items: 5,
+                    itemsDesktop: [1198, 5],
+                    itemsDesktopSmall: [1023, 4],
+                    itemsTablet: [768, 3],
+                    itemsTabletSmall: [767, 3],
+                    itemsMobile: [479, 2],
+                    pagination: false,
+                    navigationText: ["<div class='left-arrow'><i class='fa fa-angle-left'></i></div>", "<div class='right-arrow'><i class='fa fa-angle-right'></div>"],
+                    navigation: true,
+                });
+                jQuery('.product-widget-slider .product-slider').show();
+            });
+        });
+    </script>
