@@ -26,7 +26,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code từ branch 'main' (hoặc 'master')
-                git branch: 'main', credentialsId: 'github-credentials', url: 'https://github.com/pknguyen2704/techworld.git' // Thay URL nếu cần
+                git branch: 'main', credentialsId: 'github-credential', url: 'https://github.com/pknguyen2704/techworld.git' // Thay URL nếu cần
                 script {
                     // Hiển thị commit hash để tiện theo dõi
                     def commitHash = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
