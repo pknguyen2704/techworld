@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     libxslt-dev \
     libzip-dev \
-    git vim unzip cron \ # Cron sẽ được quản lý bởi K8s CronJob sau này, nhưng giữ lại không sao
+    git vim unzip cron \
     --no-install-recommends \
     && rm -r /var/lib/apt/lists/*
 

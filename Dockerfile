@@ -2,7 +2,7 @@
 
 # Sử dụng image PHP-FPM runtime đã chuẩn bị làm base
 # Thay 'yourusername/techworld-php-fpm:latest' bằng tên image base của bạn
-ARG BASE_IMAGE=yourusername/techworld-php-fpm:latest
+ARG BASE_IMAGE=pknguyen2704/techworld-php-fpm:latest
 FROM ${BASE_IMAGE}
 
 # Argument để nhận các biến môi trường build-time nếu cần
