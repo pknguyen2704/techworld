@@ -1,2 +1,15 @@
 data
 src
+# .dockerignore
+.git
+.github
+.idea
+data/
+docker/
+k8s/
+node_modules/
+vendor/ # Composer sẽ cài lại trong image
+# Các file cấu hình local không cần thiết trong image
+.env
+*.sql
+# Thêm các file/thư mục khác bạn muốn loại bỏ
