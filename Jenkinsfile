@@ -57,7 +57,7 @@ pipeline {
                     // Truyền tên image base vào làm build argument
                     def appImage = docker.build(
                         "${IMAGE_NAME_APP}:${IMAGE_TAG}",
-                        "--build-arg BASE_IMAGE=${IMAGE_NAME_BASE}:latest -f Dockerfile.app ." // Sử dụng base image tag 'latest'
+                        "--build-arg BASE_IMAGE=${IMAGE_NAME_BASE}:latest -f Dockerfile ." // Sử dụng base image tag 'latest'
                     )
                 }
             }

@@ -15,7 +15,7 @@ COPY src/magento/composer.json src/magento/composer.lock* /var/www/magento/
 
 # Đảm bảo WORKDIR đúng (đã set trong base image, nhưng để đây cho rõ)
 WORKDIR /var/www/magento
-
+RUN echo 'memory_limit = -1' >> $PHP_INI_DIR/conf.d/zz-magento-cli-build.ini
 # Cài đặt Composer dependencies
 # Chạy với --no-interaction để không hỏi đáp trong quá trình build
 # Sử dụng biến môi trường Composer nếu cần (ví dụ: COMPOSER_AUTH_TOKEN)
