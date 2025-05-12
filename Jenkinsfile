@@ -89,8 +89,8 @@ pipeline {
                 // Sử dụng credential K8s đã cấu hình
                 withKubeConfig([credentialsId: KUBE_CONFIG_CREDENTIAL_ID]) {
                     // 1. Apply tất cả các manifest trong thư mục k8s/
-                    //    Điều này đảm bảo các PVC, ConfigMap, Secret, Services, StatefulSets được tạo/cập nhật
-                    //    Lệnh apply an toàn để chạy lại nhiều lần.
+                    //    Điều này  đảm bảo các PVC, ConfigMap, Secret, Services, StatefulSets được tạo/cập nhật
+                    //    Lệnh apply an toàn  để chạy lại nhiều lần.
                     sh "kubectl apply -f k8s/ -n ${K8S_NAMESPACE}"
 
                     // 2. Cập nhật image cho Deployment PHP-FPM
