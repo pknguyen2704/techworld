@@ -1,0 +1,149 @@
+name: Deploy Magento to GCP VM
+
+on:
+  push:
+    branches:
+      - main # Hoặc master, develop tùy theo flow của bạn
+
+env:
+  GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GCP_ARTIFACT_REGISTRY: ${{ secrets.GCP_ARTIFACT_REGISTRY_LOCATION }}-docker.pkg.dev
+  GCP_IMAGE_REPO: ${{ secrets.GCP_ARTIFACT_REGISTRY_REPO }}
+  IMAGE_APP_NAME: magento-app
+  IMAGE_ES_NAME: magento-elasticsearch
+  # VM details
+  VM_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }} # Thường giống với project của registry
+  VM_ZONE: ${{ secrets.VM_ZONE }}
+  VM_INSTANCE_NAME: ${{ secrets.VM_INSTANCE_NAME }}
+  VM_USER: ${{ secrets.VM_USER }}
+  VM_PROJECT_DIR: /home/${{ secrets.VM_USER }}/magento-app # Đường dẫn thư mục project trên VM
+
+jobs:
+  build-and-push-images:
+    name: Build and Push Docker Images
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write' # Cần thiết cho Workload Identity Federation (khuyến nghị) hoặc sử dụng GCP_SA_KEY
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: '${{ secrets.GCP_SA_KEY }}' # Hoặc dùng Workload Identity Federation
+          # workload_identity_provider: 'projects/YOUR_PROJECT_NUMBER/locations/global/workloadIdentityPools/YOUR_POOL_ID/providers/YOUR_PROVIDER_ID'
+          # service_account: 'your-service-account-email@your-project-id.iam.gserviceaccount.com'
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Google Artifact Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.GCP_ARTIFACT_REGISTRY }}
+          username: oauth2accesstoken
+          password: ${{ steps.auth.outputs.access_token }} # Sử dụng access token từ bước 'Authenticate to Google Cloud'
+                                                          # nếu 'google-github-actions/auth' được cấu hình để xuất token
+                                                          # Hoặc, đơn giản hơn nếu dùng service account key trực tiếp:
+                                                          # username: _json_key
+                                                          # password: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Build and push App image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./docker/php7.4-fpm # Đường dẫn tới Dockerfile của app
+          push: true
+          tags: |
+            ${{ env.GCP_ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_IMAGE_REPO }}/${{ env.IMAGE_APP_NAME }}:latest
+            ${{ env.GCP_ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_IMAGE_REPO }}/${{ env.IMAGE_APP_NAME }}:${{ github.sha }}
+
+      - name: Build and push Elasticsearch image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./docker/elasticsearch # Đường dẫn tới Dockerfile của elasticsearch
+          push: true
+          tags: |
+            ${{ env.GCP_ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_IMAGE_REPO }}/${{ env.IMAGE_ES_NAME }}:latest
+            ${{ env.GCP_ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_IMAGE_REPO }}/${{ env.IMAGE_ES_NAME }}:${{ github.sha }}
+
+  deploy-to-vm:
+    name: Deploy to VM
+    needs: build-and-push-images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.VM_SSH_PRIVATE_KEY }}
+
+      - name: Create .env file on VM and Sync project files
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ env.VM_USER }}@${{ secrets.VM_INSTANCE_NAME }}.${{ env.VM_ZONE }}.${{ env.VM_PROJECT_ID }} "mkdir -p ${{ env.VM_PROJECT_DIR }}/config/nginx ${{ env.VM_PROJECT_DIR }}/data/mysql ${{ env.VM_PROJECT_DIR }}/data/elasticsearch"
+
+          # Tạo file .env trên VM
+          ssh -o StrictHostKeyChecking=no ${{ env.VM_USER }}@${{ secrets.VM_INSTANCE_NAME }}.${{ env.VM_ZONE }}.${{ env.VM_PROJECT_ID }} "cat <<EOF > ${{ env.VM_PROJECT_DIR }}/.env
+          MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD_SECRET }}
+          MYSQL_USER=${{ secrets.MYSQL_USER_SECRET }}
+          MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE_SECRET }}
+          MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD_SECRET }}
+          IMAGE_APP_TAG=${{ github.sha }} # Để docker-compose.yml có thể dùng tag cụ thể
+          IMAGE_ES_TAG=${{ github.sha }}
+          GCP_ARTIFACT_REGISTRY=${{ env.GCP_ARTIFACT_REGISTRY }}
+          GCP_PROJECT_ID=${{ env.GCP_PROJECT_ID }}
+          GCP_IMAGE_REPO=${{ env.GCP_IMAGE_REPO }}
+          IMAGE_APP_NAME=${{ env.IMAGE_APP_NAME }}
+          IMAGE_ES_NAME=${{ env.IMAGE_ES_NAME }}
+          EOF"
+
+          # Đồng bộ source code, docker-compose.yml, nginx config
+          # Loại trừ thư mục data và các file không cần thiết
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='data/' \
+            --exclude='README.md' \
+            ./ ${{ env.VM_USER }}@${{ secrets.VM_INSTANCE_NAME }}.${{ env.VM_ZONE }}.${{ env.VM_PROJECT_ID }}:${{ env.VM_PROJECT_DIR }}/
+
+      - name: Deploy application on VM
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ env.VM_USER }}@${{ secrets.VM_INSTANCE_NAME }}.${{ env.VM_ZONE }}.${{ env.VM_PROJECT_ID }} << 'EOF'
+            set -e # Exit immediately if a command exits with a non-zero status.
+            cd ${{ env.VM_PROJECT_DIR }}
+
+            # Login to Artifact Registry (cần thiết nếu VM không có quyền pull mặc định)
+            # Cấu hình Docker credential helper cho gcloud (chỉ cần làm một lần trên VM, hoặc đảm bảo service account của VM có quyền đọc Artifact Registry)
+            # gcloud auth configure-docker ${{ secrets.GCP_ARTIFACT_REGISTRY_LOCATION }}-docker.pkg.dev --quiet
+
+            echo "Pulling latest images..."
+            # Cần export các biến từ .env để docker-compose có thể sử dụng chúng
+            export $(grep -v '^#' .env | xargs)
+            docker compose -f docker-compose.yml pull # Sử dụng docker-compose.yml đã được rsync
+
+            echo "Stopping and removing old containers (if any)..."
+            docker compose -f docker-compose.yml down || true # || true để không lỗi nếu chưa có gì chạy
+
+            echo "Starting new containers..."
+            docker compose -f docker-compose.yml up -d --remove-orphans
+
+            echo "Waiting for services to be healthy..."
+            sleep 30 # Chờ các service (đặc biệt là DB) khởi động
+
+            echo "Running Magento post-deploy commands..."
+            # Chạy các lệnh Magento bên trong container 'app'
+            docker compose exec -T app php bin/magento maintenance:enable || true # Bật chế độ bảo trì
+            docker compose exec -T app php bin/magento setup:upgrade
+            docker compose exec -T app php bin/magento setup:di:compile
+            docker compose exec -T app php bin/magento setup:static-content:deploy -f # Thêm ngôn ngữ nếu cần, ví dụ en_US vi_VN
+            docker compose exec -T app php bin/magento cache:clean
+            docker compose exec -T app php bin/magento cache:flush
+            docker compose exec -T app php bin/magento indexer:reindex || true # Reindex có thể lỗi nếu lần đầu
+            docker compose exec -T app php bin/magento maintenance:disable || true # Tắt chế độ bảo trì
+
+            echo "Deployment finished!"
+          EOF
