@@ -7,53 +7,52 @@ on:
 
 env:
   GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-  GCP_ARTIFACT_REGISTRY_LOCATION: ${{ secrets.GCP_ARTIFACT_REGISTRY_LOCATION }} # Đảm bảo secret này tồn tại (chỉ tên region, ví dụ: asia-southeast1)
+  GCP_ARTIFACT_REGISTRY_LOCATION: ${{ secrets.GCP_ARTIFACT_REGISTRY_LOCATION }} # Ví dụ: asia-southeast1
   GCP_ARTIFACT_REGISTRY: ${{ secrets.GCP_ARTIFACT_REGISTRY_LOCATION }}-docker.pkg.dev
-  GCP_IMAGE_REPO: ${{ secrets.GCP_ARTIFACT_REGISTRY_REPO }}
+  GCP_IMAGE_REPO: ${{ secrets.GCP_ARTIFACT_REGISTRY_REPO }} # Tên repository trong Artifact Registry
   IMAGE_APP_NAME: magento-app
   IMAGE_ES_NAME: magento-elasticsearch
   # VM details
-  VM_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }} # Thường giống với project của registry
+  VM_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   VM_ZONE: ${{ secrets.VM_ZONE }}
   VM_INSTANCE_NAME: ${{ secrets.VM_INSTANCE_NAME }}
   VM_USER: ${{ secrets.VM_USER }}
-  VM_PROJECT_DIR: /home/${{ secrets.VM_USER }}/magento-app # Đường dẫn thư mục project trên VM
+  VM_PROJECT_DIR: /home/${{ secrets.VM_USER }}/magento-app
 
 jobs:
   build-and-push-images:
     name: Build and Push Docker Images
     runs-on: ubuntu-latest
+    # Permissions có thể không cần id-token: 'write' nếu không dùng google-github-actions/auth để lấy access_token
     permissions:
       contents: 'read'
-      id-token: 'write' # Cần thiết cho google-github-actions/auth khi dùng WIF, hoặc để lấy OIDC token
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Authenticate to Google Cloud
-        id: auth # <--- THÊM ID CHO BƯỚC NÀY
+      # Bước 'Authenticate to Google Cloud' vẫn có thể hữu ích để thiết lập các biến môi trường gcloud
+      # và xác thực cho các công cụ gcloud khác nếu bạn dùng sau này,
+      # nhưng không bắt buộc cho việc docker login nếu dùng _json_key.
+      - name: Authenticate to Google Cloud (optional for _json_key login, good for gcloud CLI)
         uses: 'google-github-actions/auth@v2'
         with:
           credentials_json: '${{ secrets.GCP_SA_KEY }}'
-          # Nếu bạn muốn chuyển sang Workload Identity Federation (khuyến nghị):
-          # workload_identity_provider: 'projects/YOUR_PROJECT_NUMBER/locations/global/workloadIdentityPools/YOUR_POOL_ID/providers/YOUR_PROVIDER_ID'
-          # service_account: 'your-service-account-email@YOUR_PROJECT_ID.iam.gserviceaccount.com'
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Login to Google Artifact Registry
+      - name: Login to Google Artifact Registry using _json_key
         uses: docker/login-action@v3
         with:
           registry: ${{ env.GCP_ARTIFACT_REGISTRY }}
-          username: oauth2accesstoken
-          password: ${{ steps.auth.outputs.access_token }} # <--- SỬA Ở ĐÂY: Lấy access token từ bước 'auth'
+          username: _json_key # <--- SỬ DỤNG _json_key
+          password: ${{ secrets.GCP_SA_KEY }} # <--- SỬ DỤNG TRỰC TIẾP SERVICE ACCOUNT KEY
 
       - name: Build and push App image
         uses: docker/build-push-action@v5
         with:
-          context: ./docker/php7.4-fpm # Đường dẫn tới Dockerfile của app
+          context: ./docker/php7.4-fpm
           push: true
           tags: |
             ${{ env.GCP_ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_IMAGE_REPO }}/${{ env.IMAGE_APP_NAME }}:latest
@@ -62,7 +61,7 @@ jobs:
       - name: Build and push Elasticsearch image
         uses: docker/build-push-action@v5
         with:
-          context: ./docker/elasticsearch # Đường dẫn tới Dockerfile của elasticsearch
+          context: ./docker/elasticsearch
           push: true
           tags: |
             ${{ env.GCP_ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_IMAGE_REPO }}/${{ env.IMAGE_ES_NAME }}:latest
@@ -82,7 +81,7 @@ jobs:
           ssh-private-key: ${{ secrets.VM_SSH_PRIVATE_KEY }}
 
       - name: Create .env file on VM and Sync project files
-        env: # Đưa các secrets cần thiết cho việc tạo .env vào env của step này
+        env:
           MYSQL_ROOT_PASSWORD_SECRET: ${{ secrets.MYSQL_ROOT_PASSWORD_SECRET }}
           MYSQL_USER_SECRET: ${{ secrets.MYSQL_USER_SECRET }}
           MYSQL_DATABASE_SECRET: ${{ secrets.MYSQL_DATABASE_SECRET }}
@@ -117,7 +116,7 @@ jobs:
             --exclude='.github/' \
             --exclude='data/' \
             --exclude='README.md' \
-            --exclude='*.json' \ # Loại trừ tất cả các file .json (bao gồm service account key nếu có)
+            --exclude='*.json' \
             ./ ${{ env.VM_USER }}@${{ env.VM_INSTANCE_NAME }}.${{ env.VM_ZONE }}.${{ env.VM_PROJECT_ID }}:${{ env.VM_PROJECT_DIR }}/
 
       - name: Deploy application on VM
@@ -125,7 +124,7 @@ jobs:
           echo "Deploying application on VM: ${{ env.VM_INSTANCE_NAME }}"
           ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
             ${{ env.VM_USER }}@${{ env.VM_INSTANCE_NAME }}.${{ env.VM_ZONE }}.${{ env.VM_PROJECT_ID }} << 'EOFSSH'
-            set -e # Exit immediately if a command exits with a non-zero status.
+            set -e
             echo "Changing to project directory: ${{ env.VM_PROJECT_DIR }}"
             cd ${{ env.VM_PROJECT_DIR }}
 
@@ -137,11 +136,12 @@ jobs:
               exit 1
             fi
 
-            # Đảm bảo VM có thể pull từ Artifact Registry.
-            # Nếu service account của VM chưa có quyền, bạn cần cấu hình một lần trên VM:
-            # sudo gcloud auth configure-docker ${{ env.GCP_ARTIFACT_REGISTRY_LOCATION }}-docker.pkg.dev --quiet
-            # Hoặc đảm bảo service account của VM (thường là Compute Engine default service account)
-            # có vai trò "Artifact Registry Reader".
+            # Login Docker trên VM để pull từ Artifact Registry
+            # Cần gcloud CLI đã cài đặt trên VM
+            echo "Logging in to Artifact Registry on VM..."
+            gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://${GCP_ARTIFACT_REGISTRY_LOCATION}-docker.pkg.dev
+            # Lưu ý: Service account của VM (thường là Compute Engine default service account)
+            # cần có quyền "Artifact Registry Reader" (roles/artifactregistry.reader)
 
             echo "Pulling latest images: app:${IMAGE_APP_TAG}, es:${IMAGE_ES_TAG}"
             docker compose -f docker-compose.yml pull
@@ -152,27 +152,14 @@ jobs:
             echo "Starting new containers..."
             docker compose -f docker-compose.yml up -d
 
-            echo "Waiting for services to be healthy (e.g., MySQL)..."
-            # Cân nhắc sử dụng healthchecks trong docker-compose.yml thay vì sleep cố định
-            # Ví dụ: Chờ MySQL sẵn sàng (cần mysql-client trên VM hoặc trong một container tiện ích)
-            # count=0
-            # while ! docker compose exec -T mysql mysqladmin ping -h"127.0.0.1" -u"${MYSQL_USER}" -p"${MYSQL_PASSWORD}" --silent; do
-            #   sleep 5
-            #   count=$((count+1))
-            #   if [ $count -gt 12 ]; then
-            #     echo "MySQL did not become ready in time."
-            #     docker compose logs mysql
-            #     exit 1
-            #   fi
-            # done
-            # echo "MySQL is ready."
-            sleep 30 # Giữ lại sleep tạm thời, nhưng nên cải thiện bằng healthcheck
+            echo "Waiting for services to be healthy..."
+            sleep 30
 
             echo "Running Magento post-deploy commands..."
             docker compose exec -T app php bin/magento maintenance:enable || echo "Failed to enable maintenance mode, continuing..."
             docker compose exec -T app php bin/magento setup:upgrade
             docker compose exec -T app php bin/magento setup:di:compile
-            docker compose exec -T app php bin/magento setup:static-content:deploy -f # en_US vi_VN (thêm các ngôn ngữ cần thiết)
+            docker compose exec -T app php bin/magento setup:static-content:deploy -f # en_US vi_VN
             docker compose exec -T app php bin/magento cache:clean
             docker compose exec -T app php bin/magento cache:flush
             docker compose exec -T app php bin/magento indexer:reindex || echo "Indexer reindex might have non-critical errors, continuing..."
@@ -180,3 +167,6 @@ jobs:
 
             echo "Deployment finished!"
           EOFSSH
+
+
+          
