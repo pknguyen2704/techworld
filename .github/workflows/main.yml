@@ -3,8 +3,7 @@ name: Deploy Magento to GCP VM
 on:
   push:
     branches:
-      - main # Hoặc master, develop tùy theo flow của bạn
-
+      - master
 env:
   GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   GCP_ARTIFACT_REGISTRY: ${{ secrets.GCP_ARTIFACT_REGISTRY_LOCATION }}-docker.pkg.dev
