@@ -13,17 +13,14 @@ env:
   IMAGE_APP_NAME: magento-app
   IMAGE_ES_NAME: magento-elasticsearch
   # VM details
-  VM_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-  VM_ZONE: ${{ secrets.VM_ZONE }}
-  VM_INSTANCE_NAME: ${{ secrets.VM_INSTANCE_NAME }}
   VM_USER: ${{ secrets.VM_USER }}
+  VM_IP_ADDRESS: ${{ secrets.VM_IP_ADDRESS }} # <--- THÊM BIẾN MỚI CHO IP
   VM_PROJECT_DIR: /home/${{ secrets.VM_USER }}/magento-app
 
 jobs:
   build-and-push-images:
     name: Build and Push Docker Images
     runs-on: ubuntu-latest
-    # Permissions có thể không cần id-token: 'write' nếu không dùng google-github-actions/auth để lấy access_token
     permissions:
       contents: 'read'
 
@@ -31,9 +28,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Bước 'Authenticate to Google Cloud' vẫn có thể hữu ích để thiết lập các biến môi trường gcloud
-      # và xác thực cho các công cụ gcloud khác nếu bạn dùng sau này,
-      # nhưng không bắt buộc cho việc docker login nếu dùng _json_key.
       - name: Authenticate to Google Cloud (optional for _json_key login, good for gcloud CLI)
         uses: 'google-github-actions/auth@v2'
         with:
@@ -46,8 +40,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ env.GCP_ARTIFACT_REGISTRY }}
-          username: _json_key # <--- SỬ DỤNG _json_key
-          password: ${{ secrets.GCP_SA_KEY }} # <--- SỬ DỤNG TRỰC TIẾP SERVICE ACCOUNT KEY
+          username: _json_key
+          password: ${{ secrets.GCP_SA_KEY }}
 
       - name: Build and push App image
         uses: docker/build-push-action@v5
@@ -80,6 +74,13 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.VM_SSH_PRIVATE_KEY }}
 
+      - name: Debug VM Connection Info
+        run: |
+          echo "Attempting to connect to VM using IP:"
+          echo "User: ${{ env.VM_USER }}"
+          echo "IP Address: ${{ env.VM_IP_ADDRESS }}"
+          echo "Full SSH target: ${{ env.VM_USER }}@${{ env.VM_IP_ADDRESS }}"
+
       - name: Create .env file on VM and Sync project files
         env:
           MYSQL_ROOT_PASSWORD_SECRET: ${{ secrets.MYSQL_ROOT_PASSWORD_SECRET }}
@@ -88,13 +89,15 @@ jobs:
           MYSQL_PASSWORD_SECRET: ${{ secrets.MYSQL_PASSWORD_SECRET }}
         run: |
           echo "Creating directories on VM..."
+          # SỬA ĐỔI LỆNH SSH Ở ĐÂY
           ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-            ${{ env.VM_USER }}@${{ env.VM_INSTANCE_NAME }}.${{ env.VM_ZONE }}.${{ env.VM_PROJECT_ID }} \
+            ${{ env.VM_USER }}@${{ env.VM_IP_ADDRESS }} \
             "mkdir -p ${{ env.VM_PROJECT_DIR }}/config/nginx ${{ env.VM_PROJECT_DIR }}/data/mysql ${{ env.VM_PROJECT_DIR }}/data/elasticsearch"
 
           echo "Creating .env file on VM..."
+          # SỬA ĐỔI LỆNH SSH Ở ĐÂY
           ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-            ${{ env.VM_USER }}@${{ env.VM_INSTANCE_NAME }}.${{ env.VM_ZONE }}.${{ env.VM_PROJECT_ID }} \
+            ${{ env.VM_USER }}@${{ env.VM_IP_ADDRESS }} \
             "cat <<EOF > ${{ env.VM_PROJECT_DIR }}/.env
           MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD_SECRET}
           MYSQL_USER=${MYSQL_USER_SECRET}
@@ -111,19 +114,21 @@ jobs:
           EOF"
 
           echo "Syncing project files to VM..."
+          # SỬA ĐỔI LỆNH RSYNC Ở ĐÂY
           rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
             --exclude='.git/' \
             --exclude='.github/' \
             --exclude='data/' \
             --exclude='README.md' \
             --exclude='*.json' \
-            ./ ${{ env.VM_USER }}@${{ env.VM_INSTANCE_NAME }}.${{ env.VM_ZONE }}.${{ env.VM_PROJECT_ID }}:${{ env.VM_PROJECT_DIR }}/
+            ./ ${{ env.VM_USER }}@${{ env.VM_IP_ADDRESS }}:${{ env.VM_PROJECT_DIR }}/
 
       - name: Deploy application on VM
         run: |
-          echo "Deploying application on VM: ${{ env.VM_INSTANCE_NAME }}"
+          echo "Deploying application on VM: ${{ env.VM_IP_ADDRESS }}"
+          # SỬA ĐỔI LỆNH SSH Ở ĐÂY
           ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-            ${{ env.VM_USER }}@${{ env.VM_INSTANCE_NAME }}.${{ env.VM_ZONE }}.${{ env.VM_PROJECT_ID }} << 'EOFSSH'
+            ${{ env.VM_USER }}@${{ env.VM_IP_ADDRESS }} << 'EOFSSH'
             set -e
             echo "Changing to project directory: ${{ env.VM_PROJECT_DIR }}"
             cd ${{ env.VM_PROJECT_DIR }}
@@ -136,12 +141,8 @@ jobs:
               exit 1
             fi
 
-            # Login Docker trên VM để pull từ Artifact Registry
-            # Cần gcloud CLI đã cài đặt trên VM
             echo "Logging in to Artifact Registry on VM..."
             gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://${GCP_ARTIFACT_REGISTRY_LOCATION}-docker.pkg.dev
-            # Lưu ý: Service account của VM (thường là Compute Engine default service account)
-            # cần có quyền "Artifact Registry Reader" (roles/artifactregistry.reader)
 
             echo "Pulling latest images: app:${IMAGE_APP_TAG}, es:${IMAGE_ES_TAG}"
             docker compose -f docker-compose.yml pull
@@ -167,8 +168,3 @@ jobs:
 
             echo "Deployment finished!"
           EOFSSH
-
-
-
-
-
