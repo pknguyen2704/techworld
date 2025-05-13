@@ -1,0 +1,89 @@
+version: "3.8" # Nên dùng phiên bản mới hơn nếu Docker trên VM hỗ trợ
+
+services:
+    nginx:
+        restart: always
+        container_name: techworld_nginx
+        image: nginx:latest # Giữ nguyên nếu dùng image public
+        working_dir: /var/www/
+        volumes:
+            - ./src:/var/www # Source code sẽ được CI copy xuống VM
+            - ./config/nginx/magento.conf:/etc/nginx/conf.d/default.conf
+        expose:
+            - "80"
+        ports:
+            - "80:80" # Cân nhắc map sang 443 nếu có SSL
+        depends_on: # Sử dụng depends_on thay links (links là legacy)
+            - app
+
+    app:
+        # Build context sẽ được xử lý bởi CI, ở đây ta dùng image đã push
+        image: asia-southeast1-docker.pkg.dev/YOUR_PROJECT_ID/magento-images/magento-app:latest # Thay bằng tên registry và image của bạn
+        container_name: app
+        working_dir: /var/www/magento
+        volumes:
+            - ./src/:/var/www/ # Source code sẽ được CI copy xuống VM
+        restart: always
+        expose:
+            - "9000"
+        depends_on:
+            mysql:
+                condition: service_healthy # Chờ mysql sẵn sàng
+            redis:
+                condition: service_started
+            elasticsearch:
+                condition: service_started
+        environment: # Thêm các biến môi trường cần thiết cho Magento
+            - MAGE_MODE=production # QUAN TRỌNG
+            # - DB_HOST=mysql
+            # - DB_NAME=magento_db
+            # - DB_USER=magento_user
+            # - DB_PASSWORD=defaultpassword # Sẽ được quản lý bằng secrets
+
+    mysql:
+        restart: always
+        image: mysql:8.0.31
+        container_name: techworld_mysql
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        working_dir: /var/lib/mysql
+        volumes:
+            - ./data/mysql:/var/lib/mysql # Dữ liệu persistent trên VM
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} # Sử dụng biến môi trường từ file .env
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        expose:
+            - "3306"
+        healthcheck: # Thêm healthcheck cho mysql
+            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u$$MYSQL_USER", "-p$$MYSQL_PASSWORD"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+
+    redis:
+        restart: always
+        container_name: techworld_redis
+        image: redis:latest # Giữ nguyên nếu dùng image public
+        expose:
+            - "6379"
+
+    elasticsearch:
+        user: root # Nên xem xét chạy với user không phải root nếu có thể
+        container_name: techworld_elasticsearch
+        # Build context sẽ được xử lý bởi CI
+        image: asia-southeast1-docker.pkg.dev/YOUR_PROJECT_ID/magento-images/magento-elasticsearch:latest # Thay bằng tên registry và image của bạn
+        environment:
+            - node.name=techworld_elasticsearch
+            - cluster.name=docker-cluster
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+            - "discovery.type=single-node"
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+        volumes:
+            - ./data/elasticsearch:/usr/share/elasticsearch/data # Dữ liệu persistent trên VM
+        expose:
+            - "9200"
